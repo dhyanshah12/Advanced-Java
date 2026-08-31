@@ -22,6 +22,8 @@ public class InputNumServlet extends HttpServlet
 		int n1 = Integer.parseInt(strN1);
 		int n2 = Integer.parseInt(strN2);
 		
+	
+		
 		PrintWriter  out = res.getWriter(); 
 		if(opr.equals("add"))
 		{
