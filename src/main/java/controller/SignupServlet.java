@@ -15,7 +15,8 @@ public class SignupServlet extends HttpServlet
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
 		System.out.println("signupServlet::service()");
-		
+							
+							   //read
 		String firstName = req.getParameter("firstname");
 		String lastName = req.getParameter("lastname");
 		String email = req.getParameter("email");
