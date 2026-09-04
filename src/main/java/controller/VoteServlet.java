@@ -23,7 +23,7 @@ public class VoteServlet extends HttpServlet
 		String error = "";
 		Boolean isError = false; 
 		String alphaRegEx = "[a-zA-Z]+";
-		String regex = "(19[0-9]{2}|20[0-2][0-9]|2030)";
+		String digitRegEx = "[0-9]{4}";
 		//Validation
 		if(name==null || name.isBlank()) {
 			error = "Please enter Name<br>";
@@ -36,7 +36,7 @@ public class VoteServlet extends HttpServlet
 			error += "Please enter Birthyear<br>";
 			isError = true;
 			
-		}else if(birthYear.matches(regex)==false) {
+		}else if(birthYear.matches(digitRegEx)==false) {
 			error = "Please enter Valid BirthYear<br>";
 			isError = true;
 		}
