@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import util.Validators;
+
 @WebServlet("/InputNameServlet")
 public class InputNameServlet extends HttpServlet
 {
@@ -16,12 +18,32 @@ public class InputNameServlet extends HttpServlet
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		
 		String name = req.getParameter("name");
+		String email = req.getParameter("email");
+		String Password = req.getParameter("password");
 		boolean isError = false;
 		String error = "";
+		String alphaRegEx = "[a-zA-Z]+";
 		
-		if(name==null || name.isBlank()) {
+		if(Validators.isBlank(name)) {
 			isError = true;
-			error = "Please Enter Name";
+			req.setAttribute("nameerr","Please Enter Name");
+		}else if(!Validators.isBlank(name)) {
+			req.setAttribute("nameError", "Please Enter Valid Name");
+			req.setAttribute("nameValue",name);
+		}else {
+			req.setAttribute("nameValue",name);
+		}
+		
+		
+		if(Validators.isBlank(email)) {
+			isError = true;
+			req.setAttribute("emailerr","Please Enter Email");
+		}else {
+			req.setAttribute("emailValue",email);
+		}
+		if(Validators.isBlank(Password)) {
+			isError = true;
+			req.setAttribute("passerr","Please Enter Password");
 		}
 		
 		if(isError) {
