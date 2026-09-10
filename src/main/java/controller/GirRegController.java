@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,11 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.bean.UserBean;
+
 import util.Validators;
 
 @WebServlet("/GirRegController")
 public class GirRegController extends HttpServlet
 {
+	int count = 0;
+	
+	ArrayList<UserBean> users = new ArrayList<>();
+	
 	public void service(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
 	{
 		String name = req.getParameter("name");
@@ -25,9 +32,10 @@ public class GirRegController extends HttpServlet
 		boolean isError = false;
 		
 		if(Validators.isBlank(name)) {
-			req.setAttribute("nameerr","Please Enter Name");
 			isError = true;
+			req.setAttribute("nameerr","Please Enter Name");
 		}else if(!Validators.isValidAlpha(name)) {
+			isError = true;
 			req.setAttribute("nameerr","Please Enter Valid Name");
 			req.setAttribute("nameValue",name);
 		}else {
@@ -53,12 +61,34 @@ public class GirRegController extends HttpServlet
 			req.setAttribute("conterr","Please Enter Contact");
 		}else {
 			req.setAttribute("contactValue", contact);
+//			if(contact.contains(contact)) {
+//				isError = true;
+//				req.setAttribute("error","Mobile Number Already Registred");
+//			}
 		}
 		
 		if(isError) {
+			
+			//Fail
 			RequestDispatcher rd = req.getRequestDispatcher("GirReg.jsp");
 			rd.forward(req, res);
-		}else {
+		}
+		else 
+		{
+			 //Success
+			count++;
+			
+			UserBean userBean = new UserBean();
+			userBean.setName(name);
+			userBean.setCity(city);
+			userBean.setContact(contact);
+			userBean.setGender(gender);
+			
+			users.add(userBean);
+			
+			req.setAttribute("count",count);
+			req.setAttribute("users",users);
+			System.out.println("Count"+count);
 			RequestDispatcher rd = req.getRequestDispatcher("GirSuccess.jsp");
 			rd.forward(req, res);
 		}

@@ -100,9 +100,17 @@
                     <td class="label">Contact</td>
                     <td>${contactValue}</td>
                 </tr>
+                <tr>
+                    <td class="label">Total Registration : </td>
+                    <td>${count}</td>
+                </tr>
             </table>
 
+		
             <a href="GirReg.jsp" class="btn btn-devotion">Register Another</a>
+        </div>
+        <div>
+        	${users}
         </div>
     </div>
 </div>
