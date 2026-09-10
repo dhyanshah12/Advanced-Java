@@ -118,7 +118,9 @@
                 <div class="d-grid">
                     <input type="submit" class="btn btn-devotion" value="Register"/>
                 </div>
-
+mdkf
+fndjsfdf
+fd
             </form>
         </div>
     </div>

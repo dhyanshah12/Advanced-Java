@@ -33,6 +33,8 @@ public class GirRegController extends HttpServlet
 		
 		if(Validators.isBlank(name)) {
 			isError = true;
+			s
+			
 			req.setAttribute("nameerr","Please Enter Name");
 		}else if(!Validators.isValidAlpha(name)) {
 			isError = true;
