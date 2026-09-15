@@ -1,3 +1,5 @@
+<%@page import="com.bean.UserBean"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -110,9 +112,37 @@
             <a href="GirReg.jsp" class="btn btn-devotion">Register Another</a>
         </div>
         <div>
-        	${users}
+        
+        	<% 
+        		ArrayList<UserBean> users =(ArrayList<UserBean>)request.getAttribute("users"); 
+        	%>
         </div>
     </div>
+    
+    <div class="participant-table-wrapper">
+			<table class="participant-table">
+				<tr>
+					<th>Name</th>
+					<th>Gender</th>
+					<th>City</th>
+					<th>Contact</th>
+					<th>Registration</th>
+				</tr>
+				
+				<%
+					for(UserBean user:users){
+				%>		
+				<tr>
+					<td><%=user.getName()%></td>
+					<td><%=user.getGender() %></td>
+					<td><%=user.getCity() %></td>
+					<td><%=user.getContact() %></td>
+					<td><%=user.getRegisterationDateTime() %></td>
+				</tr>
+				
+				<% } %>		
+				</table>
+		</div>
 </div>
 
 </body>

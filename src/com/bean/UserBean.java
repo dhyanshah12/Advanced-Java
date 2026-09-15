@@ -1,11 +1,14 @@
 package com.bean;
 
+import java.time.LocalDateTime;
+
 public class UserBean 
 {
 	private String name;
 	private String gender;
 	private String city;
 	private String contact;
+	private LocalDateTime registerationDateTime;
 	public String getName() {
 		return name;
 	}
@@ -29,6 +32,12 @@ public class UserBean
 	}
 	public void setContact(String contact) {
 		this.contact = contact;
+	}
+	public LocalDateTime getRegisterationDateTime() {
+		return registerationDateTime;
+	}
+	public void setRegisterationDateTime(LocalDateTime registerationDateTime) {
+		this.registerationDateTime = registerationDateTime;
 	}
 	
 	

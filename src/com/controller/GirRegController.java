@@ -1,8 +1,7 @@
-package controller;
+package com.controller;
 
 import java.io.IOException;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -13,8 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bean.UserBean;
-
-import util.Validators;
+import com.util.Validators;
 
 @WebServlet("/GirRegController")
 public class GirRegController extends HttpServlet
@@ -85,7 +83,7 @@ public class GirRegController extends HttpServlet
 			userBean.setCity(city);
 			userBean.setContact(contact);
 			userBean.setGender(gender);
-			
+			userBean.setRegisterationDateTime(LocalDateTime.now());
 			users.add(userBean);
 			
 			req.setAttribute("count",count);

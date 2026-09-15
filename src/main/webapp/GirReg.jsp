@@ -118,7 +118,6 @@
                 <div class="d-grid">
                     <input type="submit" class="btn btn-devotion" value="Register"/>
                 </div>
-
             </form>
         </div>
     </div>
