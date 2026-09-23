@@ -72,6 +72,37 @@
         background: #b45f04;
         color: #fff;
     }
+    .participant-table-wrapper {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(180, 120, 20, 0.15);
+}
+
+.participant-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.participant-table th {
+    background: #d97706;
+    color: white;
+    padding: 12px;
+    font-weight: 600;
+}
+
+.participant-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #6b4c1f;
+}
+
+.participant-table tr:hover {
+    background-color: #fff8e7;
+}
 </style>
 </head>
 <body>
